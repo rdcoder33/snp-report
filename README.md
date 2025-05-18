@@ -6,11 +6,12 @@
 pip install -r requirements.txt
 ```
 
-create a .env file with these keys:
+## create a .env file for these keys:
 
+```bash
 OPENAI_API_KEY=<open_ai_key>
 PPLX_API_KEY=<perplexity_key>
-
+```
 
 ## Run the FastAPI server
 
