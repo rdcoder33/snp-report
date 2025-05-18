@@ -1,0 +1,80 @@
+{
+    "Hereditary Cancer Panels": {
+      "Common Genes": [
+        "BRCA1",
+        "BRCA2",
+        "TP53",
+        "CHEK2",
+        "ATM",
+        "PALB2",
+        "MLH1",
+        "MSH2",
+        "MSH6",
+        "PMS2",
+        "EPCAM"
+      ],
+      "Popular Panels": [
+        "Myriad myRisk",
+        "Invitae Hereditary Cancer Panel",
+        "Ambry Genetics CancerNext"
+      ]
+    },
+    "Cardiovascular Genetic Panels": {
+      "Common Genes": [
+        "MYH7",
+        "MYBPC3",
+        "KCNQ1",
+        "KCNH2",
+        "SCN5A",
+        "LDLR",
+        "APOB",
+        "PCSK9"
+      ],
+      "Popular Panels": [
+        "Invitae Cardiomyopathy Panel",
+        "GeneDx Cardio Genetic Panel"
+      ]
+    },
+    "Carrier Screening Panels": {
+      "Common Genes": [
+        "CFTR",
+        "SMN1",
+        "HBB",
+        "GJB2"
+      ],
+      "Popular Panels": [
+        "Sema4 Expanded Carrier Screen",
+        "Invitae Carrier Screening Panel",
+        "Natera Horizon"
+      ]
+    },
+    "Neurological Panels": {
+      "Common Genes": [
+        "SCN1A",
+        "SCN2A",
+        "MECP2",
+        "FMR1",
+        "TSC1",
+        "TSC2"
+      ]
+    },
+    "Pharmacogenomics Panels": {
+      "Common Genes": [
+        "CYP2D6",
+        "CYP2C19",
+        "CYP3A5",
+        "TPMT",
+        "DPYD",
+        "UGT1A1",
+        "HLA-B"
+      ],
+      "Popular Panels": [
+        "OneOme RightMed",
+        "GeneSight Psychotropic Panel"
+      ]
+    },
+    "Whole Exome/Genome Panels": {
+      "Description": "Broad analysis panels often used for undiagnosed or rare conditions. Includes many of the above genes."
+    }
+  }
+  

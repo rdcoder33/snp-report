@@ -1,0 +1,23 @@
+{
+    "rs1801133": {
+      "gene": "MTHFR",
+      "trait": "Folate metabolism, homocysteine regulation",
+      "category": "Energy & Detox"
+    },
+    "rs1205": {
+      "gene": "CRP",
+      "trait": "C-reactive protein levels",
+      "category": "Immunity & Inflammation"
+    },
+    "rs429358": {
+      "gene": "APOE",
+      "trait": "Alzheimer’s, cholesterol, longevity (E4 variant)",
+      "category": "Memory & Brain Health"
+    },
+    "rs1801260": {
+      "gene": "CLOCK",
+      "trait": "Circadian rhythm, sleep regulation",
+      "category": "Sleep & Daily Rhythm"
+    }
+  }
+  

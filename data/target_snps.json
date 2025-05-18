@@ -1,0 +1,222 @@
+{
+  "rs4680": {
+    "gene": "COMT",
+    "trait": "Dopamine breakdown, mood, stress",
+    "category": "Cognition, Mental Health, and Neurotransmitters"
+  },
+  "rs6265": {
+    "gene": "BDNF",
+    "trait": "Brain plasticity, depression, neuroplasticity",
+    "category": "Cognition, Mental Health, and Neurotransmitters"
+  },
+  "rs6323": {
+    "gene": "MAOA",
+    "trait": "Monoamine oxidase A, aggression, mood disorders",
+    "category": "Cognition, Mental Health, and Neurotransmitters"
+  },
+  "rs1800497": {
+    "gene": "DRD2",
+    "trait": "Dopamine receptor, motivation, addiction",
+    "category": "Cognition, Mental Health, and Neurotransmitters"
+  },
+  "rs10994336": {
+    "gene": "ANK3",
+    "trait": "Bipolar disorder, neuronal activity/stability",
+    "category": "Cognition, Mental Health, and Neurotransmitters"
+  },
+  "rs1006737": {
+    "gene": "CACNA1C",
+    "trait": "Bipolar disorder, schizophrenia",
+    "category": "Cognition, Mental Health, and Neurotransmitters"
+  },
+  "rs25531": {
+    "gene": "SLC6A4",
+    "trait": "Serotonin transporter (5-HTTLPR proxy)",
+    "category": "Cognition, Mental Health, and Neurotransmitters"
+  },
+  "rs6465084": {
+    "gene": "GRM3",
+    "trait": "Glutamate receptor, schizophrenia risk",
+    "category": "Cognition, Mental Health, and Neurotransmitters"
+  },
+  "rs6311": {
+    "gene": "HTR2A",
+    "trait": "Serotonin receptor, depression, SSRI response",
+    "category": "Cognition, Mental Health, and Neurotransmitters"
+  },
+  "rs1801133": {
+    "gene": "MTHFR",
+    "trait": "Folate metabolism, homocysteine regulation",
+    "category": "Metabolism, Methylation, Detox"
+  },
+  "rs1801131": {
+    "gene": "MTHFR",
+    "trait": "Secondary common MTHFR variant",
+    "category": "Metabolism, Methylation, Detox"
+  },
+  "rs1801394": {
+    "gene": "MTRR",
+    "trait": "B12 metabolism, methylation support",
+    "category": "Metabolism, Methylation, Detox"
+  },
+  "rs234706": {
+    "gene": "CBS",
+    "trait": "Homocysteine metabolism",
+    "category": "Metabolism, Methylation, Detox"
+  },
+  "rs4630": {
+    "gene": "GSTT1",
+    "trait": "Detox enzyme (null polymorphism proxy)",
+    "category": "Metabolism, Methylation, Detox"
+  },
+  "rs1695": {
+    "gene": "GSTP1",
+    "trait": "Glutathione metabolism",
+    "category": "Metabolism, Methylation, Detox"
+  },
+  "rs1800566": {
+    "gene": "NQO1",
+    "trait": "Detoxification enzyme",
+    "category": "Metabolism, Methylation, Detox"
+  },
+  "rs762551": {
+    "gene": "CYP1A2",
+    "trait": "Caffeine metabolism, liver detox",
+    "category": "Metabolism, Methylation, Detox"
+  },
+  "rs3892097": {
+    "gene": "CYP2D6",
+    "trait": "Drug metabolism (antidepressants, opioids, poor/rapid metabolizer)",
+    "category": "Pharmacogenomics / Nutrient Processing"
+  },
+  "rs12778366": {
+    "gene": "SIRT1",
+    "trait": "Longevity, stress response",
+    "category": "Detox, Methylation, Longevity"
+  },
+  "rs1050450": {
+    "gene": "GPX1",
+    "trait": "Antioxidant enzyme, selenium-dependent",
+    "category": "Detox, Methylation, Longevity"
+  },
+  "rs4880": {
+    "gene": "SOD2",
+    "trait": "Mitochondrial antioxidant enzyme",
+    "category": "Detox, Methylation, Longevity"
+  },
+  "rs429358": {
+    "gene": "APOE",
+    "trait": "Alzheimer’s, cholesterol, longevity (E4 variant)",
+    "category": "Neurodegeneration / Cognitive Decline"
+  },
+  "rs7412": {
+    "gene": "APOE",
+    "trait": "APOE defining variant",
+    "category": "Neurodegeneration / Cognitive Decline"
+  },
+  "rs11136000": {
+    "gene": "CLU",
+    "trait": "Alzheimer’s disease, lipid transport",
+    "category": "Neurodegeneration / Cognitive Decline"
+  },
+  "rs6656401": {
+    "gene": "CR1",
+    "trait": "Alzheimer’s, immune response",
+    "category": "Neurodegeneration / Cognitive Decline"
+  },
+  "rs3851179": {
+    "gene": "PICALM",
+    "trait": "Alzheimer’s, synaptic function",
+    "category": "Neurodegeneration / Cognitive Decline"
+  },
+  "rs1800795": {
+    "gene": "IL6",
+    "trait": "Inflammation, aging, CRP levels",
+    "category": "Immune Function / Inflammation"
+  },
+  "rs1800629": {
+    "gene": "TNF",
+    "trait": "Tumor necrosis factor, inflammation",
+    "category": "Immune Function / Inflammation"
+  },
+  "rs1205": {
+    "gene": "CRP",
+    "trait": "C-reactive protein levels",
+    "category": "Immune Function / Inflammation"
+  },
+  "rs35829419": {
+    "gene": "NLRP3",
+    "trait": "Inflammasome activation, inflammation",
+    "category": "Immune Function / Inflammation"
+  },
+  "rs9939609": {
+    "gene": "FTO",
+    "trait": "Obesity, BMI regulation",
+    "category": "Metabolic / Cardiovascular Health"
+  },
+  "rs1801282": {
+    "gene": "PPARG",
+    "trait": "Insulin sensitivity, fat storage",
+    "category": "Metabolic / Cardiovascular Health"
+  },
+  "rs7903146": {
+    "gene": "TCF7L2",
+    "trait": "Type 2 diabetes risk",
+    "category": "Metabolic / Cardiovascular Health"
+  },
+  "rs266729": {
+    "gene": "ADIPOQ",
+    "trait": "Adiponectin, metabolic health",
+    "category": "Metabolic / Cardiovascular Health"
+  },
+  "rs2187668": {
+    "gene": "HLA-DQ2",
+    "trait": "Celiac disease, autoimmunity",
+    "category": "Miscellaneous: Immunity, Sleep, Sensory, etc."
+  },
+  "rs1801260": {
+    "gene": "CLOCK",
+    "trait": "Circadian rhythm, sleep regulation",
+    "category": "Miscellaneous: Immunity, Sleep, Sensory, etc."
+  },
+  "rs57875989": {
+    "gene": "PER3",
+    "trait": "Sleep, cognitive performance",
+    "category": "Miscellaneous: Immunity, Sleep, Sensory, etc."
+  },
+  "rs53576": {
+    "gene": "OXTR",
+    "trait": "Social behavior, empathy, autism risk",
+    "category": "Miscellaneous: Immunity, Sleep, Sensory, etc."
+  },
+  "rs713598": {
+    "gene": "TAS2R38",
+    "trait": "Bitter taste perception",
+    "category": "Miscellaneous: Immunity, Sleep, Sensory, etc."
+  },
+  "rs4244285": {
+    "gene": "CYP2C19",
+    "trait": "Drug metabolism (PPIs, clopidogrel)",
+    "category": "Pharmacogenomics / Nutrient Processing"
+  },
+  "rs174537": {
+    "gene": "FADS1",
+    "trait": "Omega-3/Omega-6 conversion",
+    "category": "Pharmacogenomics / Nutrient Processing"
+  },
+  "rs8175347": {
+    "gene": "UGT1A1",
+    "trait": "Bilirubin processing, drug clearance",
+    "category": "Pharmacogenomics / Nutrient Processing"
+  },
+  "rs4343": {
+    "gene": "ACE",
+    "trait": "Blood pressure regulation",
+    "category": "Metabolic / Cardiovascular Health"
+  },
+  "rs328": {
+    "gene": "LPL",
+    "trait": "Triglyceride regulation",
+    "category": "Metabolic / Cardiovascular Health"
+  }
+}

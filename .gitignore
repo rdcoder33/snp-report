@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+dist/
+build/
+.eggs/
+.env
+.venv
+venv/
+ENV/
+.env.*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# Node/npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Tailwind CSS
+*.css
+!src/**/*.css
+!public/**/*.css
+
+# Vue
+/dist/
+/.temp/
+/.cache/
+*.local
+
+# Log files
+*.log
+
+# dotenv environment variables
+.env.local
+.env.*.local
+
+# Optional: Ignore coverage reports
+coverage/
+*.cover
+*.py,cover
+.hypothesis/
+
+# Optional: Ignore test output
+htmlcov/
+
+# Optional: Ignore mypy
+.mypy_cache/
+.dmypy.json
+
+# Optional: Ignore Pyright
+.pyright/ 

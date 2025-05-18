@@ -1,0 +1,21 @@
+#app tools
+cyvcf2
+pandas
+langchain-core
+genebe
+
+#app agent
+langchain
+langgraph
+langchain-community
+pydantic
+dotenv
+
+#llm
+langchain-openai
+langchain_perplexity
+
+# api
+fastapi
+uvicorn
+sse-starlette
