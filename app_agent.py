@@ -17,6 +17,9 @@ import json
 
 import asyncio
 
+import functools
+import random
+
 
 class GenomeFileType(Enum):
     VCF = "type_vcf"
@@ -156,6 +159,35 @@ def replace_citations(text, citations):
     return re.sub(r'\[(\d+)\]', citation_replacer, text)
 
 
+# Retry helper for async functions
+async def async_retry(func, *args, retries=3, initial_delay=1, backoff=2, **kwargs):
+    delay = initial_delay
+    for attempt in range(retries):
+        try:
+            return await func(*args, **kwargs)
+        except Exception as e:
+            print(f"[Retry {attempt+1}/{retries}] Error: {e}")
+            if attempt == retries - 1:
+                raise
+            await asyncio.sleep(delay + random.uniform(0, 0.5))
+            delay *= backoff
+
+
+# Retry helper for sync functions
+
+def sync_retry(func, *args, retries=3, initial_delay=1, backoff=2, **kwargs):
+    delay = initial_delay
+    for attempt in range(retries):
+        try:
+            return func(*args, **kwargs)
+        except Exception as e:
+            print(f"[Retry {attempt+1}/{retries}] Error: {e}")
+            if attempt == retries - 1:
+                raise
+            time.sleep(delay + random.uniform(0, 0.5))
+            delay *= backoff
+
+
 async def process_category_async(data: any, user_profile: str):
     """Helper coroutine to process a single category asynchronously."""
     start_time = time.time()
@@ -164,49 +196,65 @@ async def process_category_async(data: any, user_profile: str):
 
     report_llm = creative_llm.with_structured_output(SNPDataModel)
 
-    # Use ainvoke for asynchronous calls
-    llm_tool_response, citations = await asyncio.gather(
-        llm_tool.ainvoke(perplexity_search_prompt.invoke({"data": data})),
-        get_citations(data)
-    )
+    # Use ainvoke for asynchronous calls with retry
+    try:
+        llm_tool_response, citations = await asyncio.gather(
+            async_retry(llm_tool.ainvoke, perplexity_search_prompt.invoke({"data": data})),
+            async_retry(get_citations, data)
+        )
+    except Exception as e:
+        print(f"Failed to get LLM tool response or citations after retries: {e}")
+        return "<div class='text-red-500'>Error generating report section.</div>"
 
     tool_results = []
     for tool_call in llm_tool_response.tool_calls:
-        if tool_call["name"] == "variant_api_tool":
-            result = VariantAPITool().invoke(tool_call["args"])
-        elif tool_call["name"] == "clinvar_api_tool":
-            result = ClinvarAPITool().invoke(tool_call["args"])
-        elif tool_call["name"] == "vep_api_tool":
-            result = VEPAPITool().invoke(tool_call["args"])
-
+        try:
+            if tool_call["name"] == "variant_api_tool":
+                result = sync_retry(VariantAPITool().invoke, tool_call["args"])
+            elif tool_call["name"] == "clinvar_api_tool":
+                result = sync_retry(ClinvarAPITool().invoke, tool_call["args"])
+            elif tool_call["name"] == "vep_api_tool":
+                result = sync_retry(VEPAPITool().invoke, tool_call["args"])
+            else:
+                result = None
+        except Exception as e:
+            print(f"Error in tool call {tool_call['name']}: {e}")
+            result = {"error": str(e)}
         tool_results.append({
             "tool_name": tool_call["name"],
             "result": result
         })
-        # print(f"Result from {tool_call['name']}: {result}")  # <--- SEE THE RESULT HERE
 
     # This depends on your framework. In LangChain, you might do:
-    final_response = report_llm.invoke(report_section_prompt.invoke(
-        {"data": tool_results,
-         "user_profile": user_profile,
-         "citations": citations}))
+    try:
+        final_response = sync_retry(report_llm.invoke, report_section_prompt.invoke(
+            {"data": tool_results,
+             "user_profile": user_profile,
+             "citations": citations}))
+    except Exception as e:
+        print(f"Error in report_llm.invoke: {e}")
+        return "<div class='text-red-500'>Error generating report section.</div>"
 
     ui_llm = creative_llm.with_structured_output(ReportResponse)
-
-    html_ui = ui_llm.invoke(report_ui_prompt.invoke(
-        {"data": final_response}))
+    try:
+        html_ui = sync_retry(ui_llm.invoke, report_ui_prompt.invoke(
+            {"data": final_response}))
+    except Exception as e:
+        print(f"Error in ui_llm.invoke: {e}")
+        return "<div class='text-red-500'>Error generating report UI.</div>"
   
     return html_ui.template_html_css
 
 
 async def get_citations(data: any):
-    perplexity_resp = await chat_perplexity.ainvoke(
-        perplexity_search_prompt.invoke({"data": data})
-    )
-    perplexity_answer = replace_citations(
-        str(perplexity_resp), perplexity_resp.additional_kwargs.get("citations", []))
-
-    return perplexity_answer
+    try:
+        perplexity_resp = await async_retry(chat_perplexity.ainvoke, perplexity_search_prompt.invoke({"data": data}))
+        perplexity_answer = replace_citations(
+            str(perplexity_resp), perplexity_resp.additional_kwargs.get("citations", []))
+        return perplexity_answer
+    except Exception as e:
+        print(f"Error in get_citations: {e}")
+        return []
 
 
 async def snp_data_node_async(state: AgentState):
@@ -258,13 +306,16 @@ def generate_report_ui_node(state: AgentState):
     """Use LLM to generate a report for each category."""
     print("Generating report UI")
     ui_llm = creative_llm.with_structured_output(ReportResponse)
-
-    resp = ui_llm.invoke(report_ui_prompt.invoke(
-        {"data": state.snp_data}))
-
-    state.final_report_ui = resp.template_html_css
-    state.current_action = "Report Generated"
-    print("Report UI generated")
+    try:
+        resp = sync_retry(ui_llm.invoke, report_ui_prompt.invoke(
+            {"data": state.snp_data}))
+        state.final_report_ui = resp.template_html_css
+        state.current_action = "Report Generated"
+        print("Report UI generated")
+    except Exception as e:
+        print(f"Error in generate_report_ui_node: {e}")
+        state.final_report_ui = "<div class='text-red-500'>Error generating final report UI.</div>"
+        state.current_action = "Report Generation Failed"
     return state
 
 
