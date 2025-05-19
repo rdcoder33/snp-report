@@ -55,6 +55,14 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 
 ---
 
+For Vue UI 
+
+```
+cd view/nume-report
+
+npm run dev
+```
+
 ## What works
 
 - Can only take 23andMe style text file genetic report, uploaded from local storage
